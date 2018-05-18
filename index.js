@@ -66,18 +66,18 @@ passport.use(new LocalStrategy((email, password, done) => {
             });
         }
     })
-    // If an error occured, report it
+
         .catch(done);
 }));
 
-// Save the user's email address in the cookie
+
 passport.serializeUser((user, cookieBuilder) => {
     cookieBuilder(null, user.email);
 });
 
 passport.deserializeUser((email, cb) => {
     console.log("AUTH ATTEMPT",email);
-    // Fetch the user record corresponding to the provided email address
+
     User.findOne({
         where : { email }
     }).then(r => {
@@ -154,9 +154,6 @@ app.post('/auth', (req, res) => {
         .then(() => res.redirect('/'));
 });
 
-app.get('/comment',(req,res) => {
-    res.render('comment');
-});
 
 app.post('/comment/:reviewId', (req, res) => {
     const { commentaire } = req.body;
