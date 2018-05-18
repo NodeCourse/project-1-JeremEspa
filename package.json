@@ -1,0 +1,8 @@
+{
+  "name": "project-1-JeremEspa",
+  "version": "0.0.1",
+  "dependencies": {
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.7"
+  }
+}

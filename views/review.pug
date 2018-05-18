@@ -1,0 +1,19 @@
+html
+    head
+        title Signup on my awesome website!
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        main
+            h1 Ajouter une Review
+                form(action='review' method='post' )
+                    div
+                        label(for='title_field') Titre
+                        input(id='title_field' name='title')
+                        label(for='game') Jeu
+                        input(id='game' name='game')
+                    div
+                        label(for='content_field') Review
+                        textarea(id='content_field' name='content').materialize-textarea
+                        label(for='note') Note
+                        input(id='note' name='note')
+                    input(type='submit')

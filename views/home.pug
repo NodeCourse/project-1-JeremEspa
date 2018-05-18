@@ -1,0 +1,34 @@
+html
+    head
+        title Signup on my awesome website!
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        main
+            if user
+                div Bienvenue #{user.firstname + ' ' + user.lastname}
+            h1  blog
+                a(href="/login") Se Connecter
+                a(href="/auth") S'inscrire
+                a(href="/review") Ajouter une review
+                for review in reviews
+                    review
+                        h1 #{review.title}
+                            #{review.likes.length} #{review.dislikes.length}
+                        h2    #{review.game}
+                        h2    #{review.content}
+                        h2    #{review.note}
+                        form(method="post", action="/review/" + review.id + "/like")
+                            button(type='submit') Like
+                        form(method="post", action="/review/" + review.id + "/dislike")
+                            button(type='submit') Dislike
+                    if user
+                        form(action='/comment/' + review.id, method='post' )
+                            div
+                                label(for='commentaire') Commentaire
+                                input(id='commentaire' name='commentaire')
+                                input(type='submit')
+                    else
+                        a(href="/login") Ajouter un commentaire
+                    for comment in review.comments
+                        comment
+                            h1 #{comment.user.firstname} #{comment.commentaire}

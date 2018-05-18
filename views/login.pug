@@ -1,0 +1,15 @@
+html
+    head
+        title Signup on my awesome website!
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        main
+            h1.center Se connecter
+                form(action='/login' method='post')
+                    div
+                        label(for='username-field') Nom d'utilisateur
+                        input(name='username' id='username-field')
+                    div
+                        label(for='password-field') Mot de passe
+                        input(id='password-field' type='password' name='password')
+                    button(type='submit') Envoyer
